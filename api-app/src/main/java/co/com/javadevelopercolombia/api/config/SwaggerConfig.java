@@ -54,7 +54,7 @@ public class SwaggerConfig {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("Dinning Room API")
+                .groupName("Spring Boot API")
                 .apiInfo(apiInfo(this.version))
                 .select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
