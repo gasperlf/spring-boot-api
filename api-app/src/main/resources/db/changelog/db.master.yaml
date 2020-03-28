@@ -1,0 +1,10 @@
+databaseChangeLog:
+  #   - includeAll:
+  #     - path: './src/main/resources/db.changelog/scripts'
+  #     - relativeToChangelogFile: false
+  #     - errorIfMissingOrEmpty: true
+  #     - issue: https://liquibase.jira.com/browse/CORE-3210
+
+  - include:
+      - file: scripts/create_person.sql
+      - relativeToChangelogFile: true
