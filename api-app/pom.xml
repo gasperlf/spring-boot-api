@@ -96,6 +96,12 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>net.rakugakibox.spring.boot</groupId>
+            <artifactId>orika-spring-boot-starter</artifactId>
+            <version>1.9.0</version>
+        </dependency>
+
         <!--test dependencies-->
         <dependency>
             <groupId>com.h2database</groupId>
