@@ -5,7 +5,11 @@ import org.springframework.boot.info.BuildProperties;
 import org.springframework.boot.info.GitProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.hateoas.client.LinkDiscoverer;
+import org.springframework.hateoas.client.LinkDiscoverers;
+import org.springframework.hateoas.mediatype.collectionjson.CollectionJsonLinkDiscoverer;
 import org.springframework.http.ResponseEntity;
+import org.springframework.plugin.core.SimplePluginRegistry;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -20,6 +24,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -97,6 +103,14 @@ public class SwaggerConfig {
                 .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0")
                 .contact(new Contact("Lewis", "https://github.com/gasperlf", "gasper_lf@hotmail.com "))
                 .build();
+    }
+
+    @Bean
+    public LinkDiscoverers discovers() {
+        List<LinkDiscoverer> plugins = new ArrayList<>();
+        plugins.add(new CollectionJsonLinkDiscoverer());
+        return new LinkDiscoverers(SimplePluginRegistry.create(plugins));
+
     }
 
 }
