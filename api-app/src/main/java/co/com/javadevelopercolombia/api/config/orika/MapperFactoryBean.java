@@ -15,18 +15,15 @@ public class MapperFactoryBean implements FactoryBean<MapperFactory>, Applicatio
     private ApplicationContext applicationContext;
 
     @Override
-    public MapperFactory getObject() throws Exception {
+    public MapperFactory getObject() {
 
         DefaultMapperFactory build = new DefaultMapperFactory.Builder().build();
-        for (CustomConverter converter : applicationContext.getBeansOfType(CustomConverter.class).values()) {
-            build.getConverterFactory().registerConverter(converter);
-        }
-        for (Mapper<?, ?> mapper : applicationContext.getBeansOfType(Mapper.class).values()) {
-            build.registerMapper(mapper);
-        }
-        for (ClassMapBuilder<?, ?> mapper : applicationContext.getBeansOfType(ClassMapBuilder.class).values()) {
-            build.registerClassMap(mapper);
-        }
+
+        applicationContext.getBeansOfType(CustomConverter.class).values().stream().forEach(converter -> build.getConverterFactory().registerConverter(converter));
+
+        applicationContext.getBeansOfType(Mapper.class).values().stream().forEach(mapper -> build.registerMapper(mapper));
+
+        applicationContext.getBeansOfType(ClassMapBuilder.class).values().stream().forEach(mapper -> build.registerClassMap(mapper));
 
         return build;
     }
