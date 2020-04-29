@@ -23,6 +23,11 @@
         <sonar.organization>gasperlf</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.login>28cac41071eba65176012d4181f943340d30724a</sonar.login>
+        <sonar.modules>api-app,api-model</sonar.modules>
+        <api-app.sonar.projectName>api-app</api-app.sonar.projectName>
+        <api-app.sonar.sources>src</api-app.sonar.sources>
+        <api-model.sonar.projectName>api-model</api-model.sonar.projectName>
+        <api-model.sonar.sources>src</api-model.sonar.sources>     
     </properties>
 
     <dependencyManagement>
