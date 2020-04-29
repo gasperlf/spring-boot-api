@@ -19,6 +19,10 @@
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+        <sonar.projectKey>gasperlf_spring-boot-api</sonar.projectKey>
+        <sonar.organization>gasperlf</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.login>28cac41071eba65176012d4181f943340d30724a</sonar.login>
     </properties>
 
     <dependencyManagement>
