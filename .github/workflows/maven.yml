@@ -26,3 +26,7 @@ jobs:
       run: mvn -B package -DskipTests --file pom.xml
     - name: Install with Maven
       run: mvn -B install -DskipTests --file pom.xml
+    - name: Sonar report
+      run: mvn -B sonar:sonar -DskipTests -Dsonar.login=${{secrets.SONAR_TOKEN}} --file pom.xml
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
